@@ -1,9 +1,9 @@
-import React, { useState, Component } from 'react';
+import React, { Component } from 'react';
 
 import Loadable from 'react-loadable'
 
 const componentSet = [
-    'Header', 'Text'
+    'Header', 'Text', 'Example'
 ]
 
 
@@ -16,7 +16,7 @@ class ComponentLoader extends Component {
     if (i > -1) active.splice(i, 1);
     else active.push(nome);
     active.map(m => {
-      modules.push(Loadable({
+      return modules.push(Loadable({
         loader: () => import('./'+m),
         loading: () => <div>Loading { m }...</div>,
       }));
